@@ -1,8 +1,8 @@
 {
-	"name": "typescript-library",
+	"name": "defunctionalized-api",
 	"version": "0.0.1",
-	"description": "boilerplate for typescript libraries",
-	"repository": {"url": "https://github.com/ccorcos/typescript-library"},
+	"description": "Helps you to define a composable defunctionalized fluent API for constructing a serializable query that can get evaluated in a remote process.",
+	"repository": {"url": "https://github.com/ccorcos/defunctionalized-api"},
 	"main": "build/src/index.js",
 	"scripts": {
 		"build": "tsc",
