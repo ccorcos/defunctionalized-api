@@ -10,7 +10,7 @@ npm install --save defunctionalized-api
 
 ## Background
 
-I built a testing framework where I have a bunch of API methods that call into the renderer process. Things like:
+I built a testing framework where I had a bunch of API methods that called into the renderer process. Things like:
 
 ```ts
 getElementRect(cssSelector: string): Rect
@@ -18,7 +18,7 @@ getElementText(cssSelector: string): string
 getRectsOfElementsThatContainText(cssSelector: string, text: string): Rect[]
 ```
 
-As you can see, this API does not compose well so we end up writing more and more functions that simply combine a small set of promative functions.
+As you can see, this API does not compose well. So, we ended up writing more and more functions that simply combined a small set of primitive functions.
 
 Thus, the goal is to be able to reduce `getRectsOfElementsThatContainText` into `getElements(cssSelector).filterTextContains(text).mapGetRects()`.
 
@@ -28,8 +28,8 @@ To do this, we start by defining a fluent API:
 
 ```ts
 type RootQuery = {
-	getElement(cssSelector: strong): ElementQuery
-	getElements(cssSelector: strong): ElementsQuery
+	getElement(cssSelector: string): ElementQuery
+	getElements(cssSelector: string): ElementsQuery
 }
 
 type ElementQuery = {
@@ -44,7 +44,7 @@ type ElementsQuery = {
 }
 ```
 
-At this point this point, you can construct query plans from your testing process:
+At this point, you can construct query plans from your testing process:
 
 ```ts
 const q = queryBuilder<RootQuery>()
